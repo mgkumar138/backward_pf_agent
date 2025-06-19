@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 gammas = [0.0, 0.001, 0.01, 0.1, 0.2, 0.3,0.4, 0.5, 0.6,0.7,0.8, 0.9, 0.95,0.99, 1.0] # 0.0 0.001 0.01 0.1 0.25 0.5 0.75 0.9 0.95 1
 N = 1000
-sigma_init = 0.8
+sigma_init = 0.5
 w_init = 0.0
 eta0 = 0.1
 nstates = 10
@@ -40,21 +40,21 @@ labels = [line.get_label() for line in lines]
 ax1.legend(lines, labels, loc='lower center', bbox_to_anchor=(0.5, -0.5), ncol=4, fontsize=8)
 
 ax1.set_xlabel('$\gamma$')
-ax1.set_ylabel('Percentage of Cells')
+ax1.set_ylabel('$\Delta$ cells (%)')
 ax2.set_ylabel('Final Value Loss')
 ax2.set_yscale('log')
 plt.title('Reward Discount Factor')
 ax1.grid(True,alpha=0.3)
-plt.savefig(f'./figs/alt_soln/gamma_{N}N_{sigma_init}sigma.png', bbox_inches='tight', dpi=300)
+plt.savefig(f'./figs/alt_soln/gamma_{N}N_{sigma_init}sigma.svg', bbox_inches='tight')
 
 print('Best gamma:', gammas[np.argmin(df[:, 3])])
 
 
 #%%
 
-gamma = 0.9
-Ns = [1,2,5, 10, 25, 50, 100, 250, 500, 1000] # 1,2, 5 10 25 50 100 250 500 1000
-sigma_init = 0.8
+gamma = 0.95
+Ns = [10, 25, 50, 100, 250, 500, 1000] # 1,2, 5 10 25 50 100 250 500 1000
+sigma_init = 0.5
 
 df = np.zeros((len(Ns), 4))
 
@@ -86,19 +86,19 @@ ax1.legend(lines, labels, loc='lower center', bbox_to_anchor=(0.5, -0.5), ncol=4
 
 ax1.set_xscale('log')
 ax1.set_xlabel('$N$')
-ax1.set_ylabel('Percentage of Cells')
+ax1.set_ylabel('$\Delta$ cells (%)')
 ax2.set_ylabel('Final Value Loss')
 ax2.set_yscale('log')
 plt.title('Number of Place Cells')
 ax1.grid(True,alpha=0.3)
-plt.savefig(f'./figs/alt_soln/N_{gamma}g_{sigma_init}sigma.png', bbox_inches='tight', dpi=300)
+plt.savefig(f'./figs/alt_soln/N_{gamma}g_{sigma_init}sigma.svg', bbox_inches='tight')
 
 print('Best N:', Ns[np.argmin(df[:, 3])])
 
 # %%
-gamma = 0.9
+gamma = 0.95
 N = 1000
-sigma_inits = [0.01, 0.025, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0] # 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0)
+sigma_inits = [0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0] # 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0)
 
 
 df = np.zeros((len(sigma_inits),4))
@@ -131,11 +131,12 @@ ax1.legend(lines, labels, loc='lower center', bbox_to_anchor=(0.5, -0.5), ncol=4
 
 ax1.set_xscale('log')
 ax1.set_xlabel('$\sigma$')
-ax1.set_ylabel('Percentage of Cells')
+ax1.set_ylabel('$\Delta$ cells (%)')
 ax2.set_ylabel('Final Value Loss')
 ax2.set_yscale('log')
 plt.title('Place Cell Width')
 ax1.grid(True,alpha=0.3)
-plt.savefig(f'./figs/alt_soln/sigma_{N}N_{gamma}g.png', bbox_inches='tight', dpi=300)
+# plt.savefig(f'./figs/alt_soln/sigma_{N}N_{gamma}g.png', bbox_inches='tight', dpi=300)
+plt.savefig(f'./figs/alt_soln/sigma_{N}N_{gamma}g.svg', bbox_inches='tight')
 
 print('Best sigma:', sigma_inits[np.argmin(df[:, 3])])
