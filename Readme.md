@@ -33,11 +33,12 @@ We find that place cell centers systematically shift backwards from the reward t
 If you find this repository useful for your research, please cite:
 
 ```
-@article{yaghoubi2025predictive,
-  author = {Yaghoubi, Mohammad and Kumar, M Ganesh and Nieto-Posadas, Andres and Mosser, Coralie-Anne and Gisiger, Thomas and Wilson, Émmanuel and Pehlevan, Cengiz and Williams, Sylvain and Brandon, Mark P.},
-  title = {Predictive Coding of Reward in the Hippocampus},
-  journal = {Nature},
-  year = {2025},
-  note = {In press}
+@article{yaghoubi2026predictive,
+  title={Predictive coding of reward in the hippocampus},
+  author={Yaghoubi, Mohammad and Kumar, M Ganesh and Nieto-Posadas, Andres and Mosser, Coralie-Anne and Gisiger, Thomas and Wilson, {\'E}mmanuel and Pehlevan, Cengiz and Williams, Sylvain and Brandon, Mark P},
+  journal={Nature},
+  pages={1--7},
+  year={2026},
+  publisher={Nature Publishing Group UK London}
 }
 ```
